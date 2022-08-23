@@ -8,7 +8,9 @@ from blog.models import *
 # Create your views here.
 
 def home(request):
-    return render(request, 'home/home.html')
+    allPosts = Post.objects.all()
+    context={'allPosts': allPosts}
+    return render(request, 'home/home.html' , context)
     
 
 def about(request):
